@@ -5,22 +5,6 @@ class Chess {
   //Initial Chess Board var
   final board = <List<Piece?>>[
     <Piece?>[
-      Piece(pieceType: PieceType.rook, isWhite: true),
-      Piece(pieceType: PieceType.knight, isWhite: true),
-      Piece(pieceType: PieceType.bishop, isWhite: true),
-      Piece(pieceType: PieceType.queen, isWhite: true),
-      Piece(pieceType: PieceType.king, isWhite: true),
-      Piece(pieceType: PieceType.bishop, isWhite: true),
-      Piece(pieceType: PieceType.knight, isWhite: true),
-      Piece(pieceType: PieceType.rook, isWhite: true),
-    ],
-    List.filled(8, Piece(pieceType: PieceType.pawn, isWhite: true)),
-    List.filled(8, null),
-    List.filled(8, null),
-    List.filled(8, null),
-    List.filled(8, null),
-    List.filled(8, Piece(pieceType: PieceType.pawn, isWhite: false)),
-    <Piece?>[
       Piece(pieceType: PieceType.rook, isWhite: false),
       Piece(pieceType: PieceType.knight, isWhite: false),
       Piece(pieceType: PieceType.bishop, isWhite: false),
@@ -29,6 +13,22 @@ class Chess {
       Piece(pieceType: PieceType.bishop, isWhite: false),
       Piece(pieceType: PieceType.knight, isWhite: false),
       Piece(pieceType: PieceType.rook, isWhite: false),
+    ],
+    List.filled(8, Piece(pieceType: PieceType.pawn, isWhite: false)),
+    List.filled(8, null),
+    List.filled(8, null),
+    List.filled(8, null),
+    List.filled(8, null),
+    List.filled(8, Piece(pieceType: PieceType.pawn, isWhite: true)),
+    <Piece?>[
+      Piece(pieceType: PieceType.rook, isWhite: true),
+      Piece(pieceType: PieceType.knight, isWhite: true),
+      Piece(pieceType: PieceType.bishop, isWhite: true),
+      Piece(pieceType: PieceType.queen, isWhite: true),
+      Piece(pieceType: PieceType.king, isWhite: true),
+      Piece(pieceType: PieceType.bishop, isWhite: true),
+      Piece(pieceType: PieceType.knight, isWhite: true),
+      Piece(pieceType: PieceType.rook, isWhite: true),
     ],
   ];
 
