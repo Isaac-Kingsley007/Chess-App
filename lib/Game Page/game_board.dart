@@ -1,5 +1,4 @@
 import 'package:chess_app/Chess/chess.dart';
-import 'package:chess_app/Chess/piece.dart';
 import 'package:chess_app/Game%20Page/chess_box.dart';
 import 'package:flutter/material.dart';
 
@@ -12,8 +11,10 @@ class GameBoard extends StatefulWidget {
 
 class _GameBoardState extends State<GameBoard> {
   final _chess = Chess();
-  final List<List<ChessBox?>> _chessBoxMatrix =
-      List.filled(8, List.filled(8, null));
+
+  void makeMove() {
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,16 +26,12 @@ class _GameBoardState extends State<GameBoard> {
         itemBuilder: (context, index) {
           int row = index ~/ 8;
           int col = index % 8;
-          bool isWhite = (row) & 1 == (col) & 1;
-          Piece? piece = _chess.board[row][col];
-          _chessBoxMatrix[row][col] = ChessBox(
-            isWhite: isWhite,
-            piece: piece,
+          return ChessBox(
             row: row,
             col: col,
-            chessBoxMatrix: _chessBoxMatrix,
+            chess: _chess,
+            makeMove: makeMove,
           );
-          return _chessBoxMatrix[row][col];
         },
         itemCount: 64,
       ),

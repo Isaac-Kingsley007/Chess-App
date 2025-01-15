@@ -4,7 +4,7 @@ import 'package:chess_app/Chess/piece_type.dart';
 class Chess {
   //Initial Chess Board var
   final board = <List<Piece?>>[
-    <Piece>[
+    <Piece?>[
       Piece(pieceType: PieceType.rook, isWhite: true),
       Piece(pieceType: PieceType.knight, isWhite: true),
       Piece(pieceType: PieceType.bishop, isWhite: true),
@@ -20,7 +20,7 @@ class Chess {
     List.filled(8, null),
     List.filled(8, null),
     List.filled(8, Piece(pieceType: PieceType.pawn, isWhite: false)),
-    <Piece>[
+    <Piece?>[
       Piece(pieceType: PieceType.rook, isWhite: false),
       Piece(pieceType: PieceType.knight, isWhite: false),
       Piece(pieceType: PieceType.bishop, isWhite: false),
