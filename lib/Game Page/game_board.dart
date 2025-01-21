@@ -1,8 +1,6 @@
-import 'package:chess_app/Chess/chess.dart';
 import 'package:chess_app/Game%20Page/chess_box.dart';
 import 'package:flutter/material.dart';
 import 'package:chess/chess.dart' as chess_api;
-import 'package:chess_app/Chess/piece.dart';
 
 class GameBoard extends StatefulWidget {
   const GameBoard({super.key});
@@ -12,15 +10,10 @@ class GameBoard extends StatefulWidget {
 }
 
 class _GameBoardState extends State<GameBoard> {
-  final _chess = Chess();
   final _api = chess_api.Chess();
 
-  void makeMove(int frow, int fcol, int trow, int tcol) {
-    setState(() {
-      Piece? movedPiece = _chess.board[frow][fcol];
-      _chess.board[frow][fcol] = null;
-      _chess.board[trow][tcol] = movedPiece;
-    });
+  void makeMove() {
+    setState(() {});
   }
 
   @override
@@ -37,7 +30,6 @@ class _GameBoardState extends State<GameBoard> {
             row: row,
             col: col,
             chessAPI: _api,
-            piece: _chess.board[row][col],
             makeMove: makeMove,
           );
         },

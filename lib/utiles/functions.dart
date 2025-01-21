@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:chess/chess.dart' as chess_api;
 
 Image getAsset(chess_api.Piece piece) {
-  if (piece.color == chess_api.Chess.WHITE) {
+  if (piece.color == chess_api.Color.WHITE) {
     switch (piece.type) {
       case chess_api.PieceType.PAWN:
         return Image.asset("Chess_plt60.png");
@@ -33,4 +33,11 @@ Image getAsset(chess_api.Piece piece) {
         return Image.asset("Chess_kdt60.png");
     }
   }
+
+  throw Exception("Not Valid Piece");
+}
+
+Draggable getDraggablePiece(chess_api.Piece? piece, String square) {
+  return Draggable(
+      feedback: getAsset(piece!), data: square, child: getAsset(piece));
 }

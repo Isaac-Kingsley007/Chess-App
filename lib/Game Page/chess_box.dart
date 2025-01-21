@@ -1,5 +1,4 @@
 import 'package:chess/chess.dart' as chess_api;
-import 'package:chess_app/Chess/piece.dart';
 import 'package:chess_app/utiles/functions.dart';
 import 'package:chess_app/utiles/game_constants.dart';
 import 'package:flutter/material.dart';
@@ -9,8 +8,12 @@ class ChessBox extends StatefulWidget {
   final int row, col;
   final chess_api.Chess chessAPI;
   late final Function makeMove;
+
   late final bool isWhite = (row + col) % 2 == 0;
-  late final Piece? piece;
+  late final String colLetter = String.fromCharCode('a'.codeUnitAt(0) + col);
+  late final int rowVal = 8 - row;
+  late final String square = "$colLetter$rowVal";
+  late final chess_api.Piece? piece = chessAPI.get(square);
 
   ChessBox({
     super.key,
@@ -18,7 +21,6 @@ class ChessBox extends StatefulWidget {
     required this.col,
     required this.chessAPI,
     required this.makeMove,
-    required this.piece,
   });
 
   @override
@@ -26,45 +28,25 @@ class ChessBox extends StatefulWidget {
 }
 
 class _ChessBoxState extends State<ChessBox> {
-  Draggable getDraggablePiece(Piece? piece, int row, int col) {
-    return Draggable(
-        feedback: getAsset(piece!), data: (row, col), child: getAsset(piece));
-  }
-
   @override
   Widget build(BuildContext context) {
-    return DragTarget<(int, int)>(
+    return DragTarget<String>(
       builder: (context, candidateData, rejectedData) {
         return Container(
             color: (widget.isWhite) ? GameColors.light : GameColors.dark,
             child: (widget.piece != null)
-                ? getDraggablePiece(widget.piece, widget.row, widget.col)
+                ? getDraggablePiece(widget.piece, widget.square)
                 : const SizedBox());
       },
       onWillAcceptWithDetails: (details) {
-        // var (frow, fcol) = details.data;
-        // int fr = (8 - frow);
-        // String fc = String.fromCharCode('a'.codeUnitAt(0) + fcol);
-        // int tr = (8 - widget.row);
-        // String tc = String.fromCharCode('a'.codeUnitAt(0) + widget.col);
-        // final enc = {'from': '$fc$fr', 'to': '$tc$tr'};
-        // bool ret = widget.chessAPI.move(enc);
-        // print("$enc $ret");
-        // print("Board state:\n${widget.chessAPI.ascii}");
-        // return ret;
         return true;
       },
       onAcceptWithDetails: (details) {
-        var (frow, fcol) = details.data;
-
-        int fr = (8 - frow);
-        String fc = String.fromCharCode('a'.codeUnitAt(0) + fcol);
-        int tr = (8 - widget.row);
-        String tc = String.fromCharCode('a'.codeUnitAt(0) + widget.col);
-        final enc = {'from': '$fc$fr', 'to': '$tc$tr'};
+        final enc = {'from': details.data, 'to': widget.square};
         bool ret = widget.chessAPI.move(enc);
+
         if (ret) {
-          widget.makeMove(frow, fcol, widget.row, widget.col);
+          widget.makeMove();
         }
       },
     );
