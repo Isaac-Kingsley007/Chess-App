@@ -33,7 +33,7 @@ int staticEvaluation(Chess game) {
     }
   }
 
-  if (game.in_check) score -= 10;
+  if (game.in_check) score -= 5;
 
   return score;
 }
@@ -88,7 +88,7 @@ String bestMove(Chess game, int depth) {
   int bestScore = -100000, score;
   String bestMove = "";
   for (var move in game.moves()) {
-    // print("$move start");
+    //print(move);
     game.move(move);
     score = -negamax(game, depth - 1, -100000, 100000);
     game.undo();
@@ -110,3 +110,5 @@ String generateMove(Chess game, int depth) {
     return bestMove(game, depth);
   }
 }
+
+//int findHash(int val, Chess game, String move) {}
