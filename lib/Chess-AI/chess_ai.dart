@@ -38,31 +38,6 @@ int staticEvaluation(Chess game) {
   return score;
 }
 
-// int staticEvaluation(Chess game) {
-//   // gives white double the advantage than black due to white's first move
-//   int whiteValue = Random().nextInt(100);
-
-//   // gives white half the advantage compared to white due to not starting first
-//   int blackValue = Random().nextInt(50);
-
-//   // take account of space
-//   int space = game.moves().length;
-
-//   // decrease space when king attack to enfore forced defending moves
-//   if (game.king_attacked(game.turn)) {
-//     space += -80;
-//   }
-
-//   // remove space when in check, to either defend the king with pawns
-//   if (game.in_check == true) {
-//     space += -20 + (whiteValue - blackValue);
-//   }
-
-//   // return overall eval
-
-//   return (whiteValue - blackValue) + space;
-// }
-
 int negamax(Chess game, int depth, int alpha, int beta) {
   if (game.game_over || depth == 0) {
     return staticEvaluation(game);
