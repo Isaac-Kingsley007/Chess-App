@@ -7,15 +7,23 @@ class GameStatusBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('Game status box built');
-    return Row(
-      children: [
-        Container(
-          color: context.read<DataProvider>().getTurnColor(),
-          child: const Text("Turn"),
-        ),
-        Text(context.read<DataProvider>().gameStatement())
-      ],
+    print("game Status box loads");
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 2),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+            decoration: BoxDecoration(
+                color: context.watch<DataProvider>().getTurnColor(),
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(width: 1)),
+            child: const Text("Turn"),
+          ),
+          Text(context.watch<DataProvider>().gameStatement())
+        ],
+      ),
     );
   }
 }

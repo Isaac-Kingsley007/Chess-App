@@ -1,4 +1,5 @@
-import 'package:chess_app/Game%20Page/game_board.dart';
+//import 'package:chess_app/Game%20Page/game_board.dart';
+import 'package:chess_app/Game%20Page/game_layout.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -11,7 +12,7 @@ class HomePage extends StatelessWidget {
         title: const Text("Chess App"),
         actions: const [],
       ),
-      body: const GameBoard(),
+      body: const GameLayout(),
     );
   }
 }

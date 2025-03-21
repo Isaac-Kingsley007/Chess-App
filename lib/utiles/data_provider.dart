@@ -35,7 +35,7 @@ class DataProvider extends ChangeNotifier {
   String gameStatement() {
     if (game.game_over) {
       if (game.in_checkmate) {
-        return "Checkmate ${game.turn} won";
+        return "Checkmate ${game.turn == chess_api.Color.WHITE ? "Black" : "White"} won";
       } else {
         return 'draw';
       }

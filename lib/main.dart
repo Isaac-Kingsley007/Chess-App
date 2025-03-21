@@ -25,6 +25,7 @@ class ChessApp extends StatelessWidget {
         primaryColor: Colors.blue,
         primarySwatch: Colors.purple,
       ),
+      debugShowCheckedModeBanner: false,
       home: const HomePage(),
     );
   }
