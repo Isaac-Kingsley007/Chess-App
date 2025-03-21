@@ -11,9 +11,12 @@ class GameLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Consumer<DataProvider>(
-        builder: (context, value, child) => const Column(
-          children: [GameBoard(), GameStatusBox()],
-        ),
+        builder: (context, value, child) {
+          print("Makes Relods");
+          return Column(
+            children: [GameBoard(), GameStatusBox()],
+          );
+        },
       ),
     );
   }

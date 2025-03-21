@@ -4,8 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-      create: (context) => DataProvider(), child: const ChessApp()));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => DataProvider()),
+      ],
+      child: const ChessApp(),
+    ),
+  );
 }
 
 class ChessApp extends StatelessWidget {

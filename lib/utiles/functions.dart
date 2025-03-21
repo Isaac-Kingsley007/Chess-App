@@ -1,4 +1,4 @@
-import 'package:chess_app/utiles/data_provider.dart';
+//import 'package:chess_app/utiles/data_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:chess/chess.dart' as chess_api;
 

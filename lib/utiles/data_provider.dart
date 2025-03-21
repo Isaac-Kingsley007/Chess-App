@@ -2,18 +2,23 @@ import 'package:chess/chess.dart' as chess_api;
 import 'package:chess_app/Chess-AI/chess_ai.dart';
 import 'package:flutter/material.dart';
 
-class DataProvider with ChangeNotifier {
+class DataProvider extends ChangeNotifier {
   final chess_api.Chess game = chess_api.Chess();
 
   //DataProvider({});
 
   void makeMove(String from, String to) {
+    print("Getting colls");
     final moveDict = {'from': from, 'to': to};
     bool isValid = game.move(moveDict);
     if (isValid) {
       notifyListeners();
+      print("Inside Make Move : $isValid");
+      print(game.ascii);
       aiPlay();
       notifyListeners();
+    } else {
+      print("Not Valid");
     }
   }
 
