@@ -1,7 +1,5 @@
-//import 'package:chess_app/Chess-AI/chess_AI.dart';
 import 'package:chess_app/Game%20Page/chess_box.dart';
 import 'package:flutter/material.dart';
-//import 'package:chess/chess.dart' as chess_api;
 
 class GameBoard extends StatefulWidget {
   const GameBoard({super.key});

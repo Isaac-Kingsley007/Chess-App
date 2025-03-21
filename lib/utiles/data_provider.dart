@@ -5,20 +5,13 @@ import 'package:flutter/material.dart';
 class DataProvider extends ChangeNotifier {
   final chess_api.Chess game = chess_api.Chess();
 
-  //DataProvider({});
-
   void makeMove(String from, String to) {
-    print("Getting colls");
     final moveDict = {'from': from, 'to': to};
     bool isValid = game.move(moveDict);
     if (isValid) {
       notifyListeners();
-      print("Inside Make Move : $isValid");
-      print(game.ascii);
       aiPlay();
       notifyListeners();
-    } else {
-      print("Not Valid");
     }
   }
 

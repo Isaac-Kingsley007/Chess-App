@@ -1,4 +1,3 @@
-//import 'package:chess_app/utiles/data_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:chess/chess.dart' as chess_api;
 
@@ -87,11 +86,3 @@ void showPromotionDialog(BuildContext context, Function(String) onPieceSelected,
 Image getPieceImage(chess_api.PieceType type, chess_api.Color color) {
   return getAsset(chess_api.Piece(type, color));
 }
-
-// void handlePawnPromotion(
-//     BuildContext context, chess_api.Color turn, String from, String to) {
-//   showPromotionDialog(context, (selectedPiece) {
-//     Navigator.of(context).pop(); // Close the dialog
-//     context.read<DataProvider>().(selectedPiece); // Perform promotion
-//   }, turn);
-// }

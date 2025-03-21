@@ -41,15 +41,10 @@ class _ChessBoxState extends State<ChessBox> {
         return true;
       },
       onAcceptWithDetails: (details) {
-        // final enc = {'from': details.data, 'to': widget.square};
-        // bool ret = widget.chessAPI.move(enc);
+        chess_api.Piece? pieceComming =
+            context.read<DataProvider>().game.get(details.data);
 
-        // if (ret) {
-        //   widget.makeMove();
-        // }
-
-        chess_api.Piece pieceComming =
-            context.read<DataProvider>().game.get(details.data)!;
+        if (pieceComming == null) return;
 
         if ((widget.row == 0 || widget.row == 7) &&
             pieceComming.type == chess_api.PieceType.PAWN) {
@@ -61,8 +56,6 @@ class _ChessBoxState extends State<ChessBox> {
           }, context.read<DataProvider>().game.turn);
         } else {
           context.read<DataProvider>().makeMove(details.data, widget.square);
-          // widget.chessAPI.move({})
-          // widget.makeMove();
         }
       },
     );
