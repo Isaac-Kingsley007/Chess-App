@@ -8,10 +8,10 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Chess App"),
-        actions: [],
+        title: const Text("Chess App"),
+        actions: const [],
       ),
-      body: GameBoard(),
+      body: const GameBoard(),
     );
   }
 }

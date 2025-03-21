@@ -13,7 +13,6 @@ class ChessBox extends StatefulWidget {
   late final String colLetter = String.fromCharCode('a'.codeUnitAt(0) + col);
   late final int rowVal = 8 - row;
   late final String square = "$colLetter$rowVal";
-  chess_api.Piece? piece;
 
   ChessBox({
     super.key,
@@ -28,13 +27,14 @@ class ChessBox extends StatefulWidget {
 class _ChessBoxState extends State<ChessBox> {
   @override
   Widget build(BuildContext context) {
-    widget.piece = context.watch<DataProvider>().game.get(widget.square);
+    chess_api.Piece? piece =
+        context.watch<DataProvider>().game.get(widget.square);
     return DragTarget<String>(
       builder: (context, candidateData, rejectedData) {
         return Container(
             color: (widget.isWhite) ? GameColors.light : GameColors.dark,
-            child: (widget.piece != null)
-                ? getDraggablePiece(widget.piece, widget.square)
+            child: (piece != null)
+                ? getDraggablePiece(piece, widget.square)
                 : const SizedBox());
       },
       onWillAcceptWithDetails: (details) {
