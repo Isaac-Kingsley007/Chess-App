@@ -1,16 +1,14 @@
-# chess_app
+# ♟️ Chess App
 
-A new Flutter project.
+A simple and engaging chess game app built using Flutter, featuring a custom-built AI opponent for a challenging gameplay experience.
 
-## Getting Started
+## 🚀 Features
 
-This project is a starting point for a Flutter application.
+- **Built-in AI Opponent**: Play against a custom AI developed from scratch, designed to provide a balanced and fun challenge.
+- **User-friendly Interface**: Clean, simple, and intuitive UI for an enjoyable gaming experience.
+- **Cross-Platform**: Runs on both Android and Web also can be extendend for more platforms
+- **Offline-Support**: Play anytime, anywhere without an internet connection.
 
-A few resources to get you started if this is your first Flutter project:
+## 🛠️ Tech Stack
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **Flutter**: Cross-platform Application development framework

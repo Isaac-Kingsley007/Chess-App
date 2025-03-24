@@ -7,7 +7,6 @@ class GameStatusBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("game Status box loads");
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 2),
       child: Row(

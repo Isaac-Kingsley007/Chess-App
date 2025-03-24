@@ -1,4 +1,3 @@
-//import 'package:chess_app/Game%20Page/game_board.dart';
 import 'package:chess_app/Game%20Page/game_layout.dart';
 import 'package:flutter/material.dart';
 
